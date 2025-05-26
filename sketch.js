@@ -62,10 +62,11 @@ function draw() {
       x = (x1 + x2) / 2;
       y = (y1 + y2) / 2;
     } else {
-      [x, y] = keypoints[94]; // 鼻尖（鼻子正中央）
+      [x, y] = keypoints[94]; // 鼻尖
+      x += 10; // 微調到正中央
     }
     noFill();
-    stroke(255, 0, 0); // 紅色
+    stroke(255, 0, 0);
     strokeWeight(12);
     ellipse(x, y, 60, 60);
   }
