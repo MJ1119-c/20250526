@@ -48,6 +48,19 @@ function draw() {
     noStroke();
     ellipse(nx, ny, 10, 10); // 在鼻子畫一個小黃點
 
+    // 顯示辨識到的手勢字幕
+    if (gesture === "stone" || gesture === "scissors" || gesture === "paper") {
+      fill(255, 0, 0);
+      noStroke();
+      textSize(48);
+      textAlign(CENTER, TOP);
+      let label = "";
+      if (gesture === "stone") label = "石頭";
+      if (gesture === "scissors") label = "剪刀";
+      if (gesture === "paper") label = "布";
+      text(label, width / 2, 40);
+    }
+
     let x, y;
     if (gesture === "stone") {
       [x, y] = keypoints[10]; // 額頭
@@ -56,7 +69,7 @@ function draw() {
     } else if (gesture === "paper") {
       [x, y] = keypoints[152]; // 下巴
     } else {
-      [x, y] = keypoints[19]; // 預設在鼻尖
+      [x, y] = keypoints[19]; // 預設在keypoint 19（鼻樑上方）
     }
     noFill();
     stroke(255, 0, 0);
