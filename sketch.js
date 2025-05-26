@@ -62,12 +62,12 @@ function draw() {
       x = (x1 + x2) / 2;
       y = (y1 + y2) / 2;
     } else {
-      [x, y] = keypoints[10]; // 預設改為額頭（臉部上方的鼻子）
+      [x, y] = keypoints[168]; // 改成鼻樑點（鼻子正上方）
     }
 
     noFill();
-    stroke(255, 0, 0); // 改為紅色
-    strokeWeight(8);   // 線條加粗
+    stroke(255, 0, 0); // 紅色
+    strokeWeight(8);
     ellipse(x, y, 50, 50);
   }
 }
