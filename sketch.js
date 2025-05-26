@@ -56,7 +56,7 @@ function draw() {
     } else if (gesture === "paper") {
       [x, y] = keypoints[152]; // 下巴
     } else {
-      [x, y] = keypoints[94]; // 預設在鼻尖
+      [x, y] = keypoints[19]; // 預設在鼻尖
     }
     noFill();
     stroke(255, 0, 0);
