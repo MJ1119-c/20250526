@@ -52,17 +52,11 @@ function draw() {
     if (gesture === "stone") {
       [x, y] = keypoints[10]; // 額頭
     } else if (gesture === "scissors") {
-      const [x1, y1] = keypoints[33];
-      const [x2, y2] = keypoints[263];
-      x = (x1 + x2) / 2;
-      y = (y1 + y2) / 2;
+      [x, y] = keypoints[234]; // 左臉頰
     } else if (gesture === "paper") {
-      const [x1, y1] = keypoints[234];
-      const [x2, y2] = keypoints[454];
-      x = (x1 + x2) / 2;
-      y = (y1 + y2) / 2;
+      [x, y] = keypoints[152]; // 下巴
     } else {
-      [x, y] = keypoints[1]; // 鼻樑中央
+      [x, y] = keypoints[94]; // 預設在鼻尖
     }
     noFill();
     stroke(255, 0, 0);
