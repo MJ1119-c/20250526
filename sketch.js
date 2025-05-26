@@ -62,8 +62,7 @@ function draw() {
       x = (x1 + x2) / 2;
       y = (y1 + y2) / 2;
     } else {
-      [x, y] = keypoints[94]; // 鼻尖
-      x += 10; // 微調到正中央
+      [x, y] = keypoints[1]; // 鼻樑中央
     }
     noFill();
     stroke(255, 0, 0);
