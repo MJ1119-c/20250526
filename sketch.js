@@ -34,34 +34,40 @@ function handReady() {}
 function draw() {
   image(video, 0, 0, width, height);
 
+  // Debug: 顯示偵測到的臉部數量
+  fill(0, 255, 0);
+  noStroke();
+  textSize(24);
+  text("faces: " + predictions.length, 10, 30);
+
   if (predictions.length > 0) {
     const keypoints = predictions[0].scaledMesh;
-    let x, y;
+    // Debug: 顯示鼻子座標
+    const [nx, ny] = keypoints[94];
+    fill(255, 255, 0);
+    noStroke();
+    ellipse(nx, ny, 10, 10); // 在鼻子畫一個小黃點
 
-    // 根據手勢決定圓圈位置
+    let x, y;
     if (gesture === "stone") {
-      // 額頭 (第10點)
       [x, y] = keypoints[10];
     } else if (gesture === "scissors") {
-      // 左右眼睛中點 (第33, 263點)
       const [x1, y1] = keypoints[33];
       const [x2, y2] = keypoints[263];
       x = (x1 + x2) / 2;
       y = (y1 + y2) / 2;
     } else if (gesture === "paper") {
-      // 左右臉頰中點 (第234, 454點)
       const [x1, y1] = keypoints[234];
       const [x2, y2] = keypoints[454];
       x = (x1 + x2) / 2;
       y = (y1 + y2) / 2;
     } else {
-      // 預設鼻子 (第94點)
       [x, y] = keypoints[94];
     }
 
     noFill();
-    stroke(255, 0, 0);
-    strokeWeight(4);
+    stroke(0, 255, 255); // 改成亮色
+    strokeWeight(8);     // 線條加粗
     ellipse(x, y, 50, 50);
   }
 }
