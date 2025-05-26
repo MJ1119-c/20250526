@@ -50,7 +50,7 @@ function draw() {
 
     let x, y;
     if (gesture === "stone") {
-      [x, y] = keypoints[10];
+      [x, y] = keypoints[10]; // 額頭
     } else if (gesture === "scissors") {
       const [x1, y1] = keypoints[33];
       const [x2, y2] = keypoints[263];
@@ -62,12 +62,12 @@ function draw() {
       x = (x1 + x2) / 2;
       y = (y1 + y2) / 2;
     } else {
-      [x, y] = keypoints[94];
+      [x, y] = keypoints[10]; // 預設改為額頭（臉部上方的鼻子）
     }
 
     noFill();
-    stroke(0, 255, 255); // 改成亮色
-    strokeWeight(8);     // 線條加粗
+    stroke(255, 0, 0); // 改為紅色
+    strokeWeight(8);   // 線條加粗
     ellipse(x, y, 50, 50);
   }
 }
