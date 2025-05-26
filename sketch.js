@@ -64,11 +64,10 @@ function draw() {
     } else {
       [x, y] = keypoints[94]; // 鼻尖（鼻子正中央）
     }
-
     noFill();
     stroke(255, 0, 0); // 紅色
-    strokeWeight(8);
-    ellipse(x, y, 50, 50);
+    strokeWeight(12);
+    ellipse(x, y, 60, 60);
   }
 }
 
